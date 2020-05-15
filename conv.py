@@ -118,6 +118,9 @@ def conv(img, k, stride, padding):
 
 # %%
 
-img = np.arange(24).reshape(2, 3, 4)
-k = np.ones((2, 2, 3, 3))
-res = conv(img, k, stride=1, padding=1)
+
+if __name__ == "__main__":
+    img = np.arange(24).reshape(2, 3, 4)
+    k = np.ones((2, 2, 3, 3))
+    res = conv(img, k, stride=1, padding=1)
+    

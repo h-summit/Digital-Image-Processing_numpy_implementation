@@ -8,11 +8,11 @@ import cv2 as cv
 
 def rotate(img, theta):
     """
-    旋转图片
+    旋转图片:为了省事,直接截断了坐标,所以不能超过一圈,超过图片就糊了
     
     Args:
       img: 单通道图片, array.shape == (h, w,)
-      theta: 是一个
+      theta: 旋转角度,弧度制,
     
     Returns:
       变换后的图片
@@ -51,6 +51,18 @@ def rotate(img, theta):
 
     return img[index[:, :, 0], index[:, :, 1]]
 
+# %%
 
+if __name__ == "__main__":
+
+    img = cv.imread("1.jpg")
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+
+    img = rotate(img, 0.1)
+    
+    cv.imshow("asd", img)
+    
+    cv.waitKey()
+    cv.destroyAllWindows()
 
     

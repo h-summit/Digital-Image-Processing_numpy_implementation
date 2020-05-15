@@ -53,3 +53,26 @@ def dalition(img, kernal):
             if np.max(extract[kernal_]) == 255:
                 res[i + int(kernal.shape[0] / 2), j + int(kernal.shape[1] / 2)] = 255
     return res
+
+if __name__ == "__main__":
+    img = cv.imread("1.jpg")
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+
+    kernal = np.array([
+        [1, 1, 1], 
+        [1, 1, 1], 
+        [1, 1, 1]], dtype=np.int32)
+
+    mask_1 = img > 155
+    mask_2 = img <= 155
+    img[ mask_1 ] = 255
+    img[ mask_2 ] = 0
+
+    img_ = erode(img, kernal)
+    img__ = dalition(img, kernal)
+
+    cv.imshow("asd", img__)
+    cv.imshow("asd1", img_)
+    
+    cv.waitKey()
+    cv.destroyAllWindows()

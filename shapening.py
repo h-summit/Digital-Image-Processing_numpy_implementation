@@ -44,7 +44,6 @@ def sharpening(img):
     return img - res
 
 
-# %%
 
 def unsharping_masking(img, k):
     """
@@ -59,4 +58,22 @@ def unsharping_masking(img, k):
     """
     # 可以尝试一下负的k，是钝化的感觉
     img = img + k * (img - np.mean(img))
+    img[img > 255] = 255
     return img.astype(np.uint8)
+
+# %%
+
+if __name__ == "__main__":
+    img = cv.imread("1.jpg")
+    
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    
+    img_ = sharpening(img)
+    img__ = unsharping_masking(img, 0.1)
+
+    cv.imshow("asd", img__)
+    cv.imshow("asd1", img_)
+    cv.imshow("asdA", img)
+    
+    cv.waitKey()
+    cv.destroyAllWindows()

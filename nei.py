@@ -1,5 +1,6 @@
 
 # created at 2020.05.15 by Gaofeng
+# %%
 
 import cv2 as cv
 import numpy as np
@@ -53,3 +54,10 @@ def nei_r(img, ratio):
 
     return img[index_h, index_w, :]
 
+# %%
+if __name__ == "__main__":
+    img = cv.imread("1.jpg")
+    img = nei_r(img, 0.4)
+    cv.imshow("asd", img)
+    cv.waitKey()
+    cv.destroyAllWindows()

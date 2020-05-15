@@ -8,7 +8,7 @@ import numpy as np
 
 def DoubleLinearInterplo(img, ratio):
     """
-    DoubleLinearInterplo:双线性插值
+    DoubleLinearInterplo:双线性插值,循环写的,贼慢.可以用vectorize优化一下
     
     Args:
       img:输入的灰度图
@@ -53,8 +53,8 @@ def DoubleLinearInterplo(img, ratio):
 
 if __name__ == "__main__":
 
-    img = cv.imread("hww.jpg")
-    cv.imshow("asd",DoubleLinearInterplo(img, 0.3))
+    img = cv.imread("1.jpg")
+    cv.imshow("asd",DoubleLinearInterplo(img, 0.9))
     cv.waitKey(0)
     cv.destroyAllWindows()
 

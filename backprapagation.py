@@ -1,6 +1,7 @@
 
 # created at 2020.05.15 by Gaofeng
 
+# 通过面向对象机制,分离了层与层之间的前向传播和反向传播
 
 # %%
 import numpy as np
